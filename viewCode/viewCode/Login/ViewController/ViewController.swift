@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginScreen?.configTextFieldDelegate(delegate: self)
+        loginScreen?.delegate(delegate: self)
      
     }
 
@@ -51,3 +52,13 @@ extension ViewController: UITextFieldDelegate {
     
 }
 
+extension ViewController: LoginScreenProtocol {
+    
+    func tappedLoginButton() {
+        print(#function)
+    }
+    
+    func tappedRegisterButton() {
+        print(#function)
+    }
+}

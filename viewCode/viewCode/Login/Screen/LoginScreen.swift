@@ -7,7 +7,23 @@
 
 import UIKit
 
+//MARK: INÍCIO DA IMPLEMENTAÇÃO DO PROTOCOL PARA TRANSFERÊNCIA DE INFORMAÇÕES \/
+
+protocol LoginScreenProtocol: AnyObject {
+    func tappedLoginButton()
+    func tappedRegisterButton()
+}
+
+
 class LoginScreen: UIView {
+    
+    private weak var delegate: LoginScreenProtocol?
+    
+    func delegate(delegate: LoginScreenProtocol?) {
+        self.delegate = delegate
+    }
+    
+//MARK: FIM DA IMPLEMENTAÇÃO DO PROTOCOL /\
     
     lazy var loginLabel: UILabel = {
         let label = UILabel()
@@ -71,7 +87,7 @@ class LoginScreen: UIView {
     }()
     
     @objc func tappedLogginButton() {
-        print(#function)
+        delegate?.tappedLoginButton()
     }
     
     lazy var registerButton: UIButton = {
@@ -86,7 +102,7 @@ class LoginScreen: UIView {
     }()
     
     @objc func tappedRegisterButton() {
-        print(#function)
+        delegate?.tappedRegisterButton()
     }
     
     
