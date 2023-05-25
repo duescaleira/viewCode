@@ -65,9 +65,14 @@ class LoginScreen: UIView {
         button.clipsToBounds = true
         button.layer.cornerRadius = 7.5
         button.backgroundColor = UIColor(red: 3/255, green: 58/255, blue: 51/255, alpha: 1.0)
+        button.addTarget(self, action: #selector(tappedLogginButton), for: .touchUpInside)
         
         return button
     }()
+    
+    @objc func tappedLogginButton() {
+        print(#function)
+    }
     
     lazy var registerButton: UIButton = {
         let button = UIButton()
@@ -75,10 +80,14 @@ class LoginScreen: UIView {
         button.setTitle("Não tem conta? Cadastre-se", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(tappedRegisterButton), for: .touchUpInside)
         
         return button
     }()
     
+    @objc func tappedRegisterButton() {
+        print(#function)
+    }
     
     
     override init(frame: CGRect) {
